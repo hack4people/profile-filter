@@ -147,9 +147,10 @@
 
             // var im = document.getElementById("profileImage").setAttribute("src", "http://graph.facebook.com/" + id + "/pciture?type=normal");
 
+            
             var img = new Image();
+            img.setAttribute('crossOrigin', 'anonymous');
             img.src = "https://graph.facebook.com/" +response.id+ "/picture?type=large";
-
 
             img.onload = function() {
 
@@ -192,6 +193,8 @@
 
     function addImage2() {
         var img = new Image();
+            img.setAttribute('crossOrigin', 'anonymous');
+        
         img.src = "maximus.png";
 
 
