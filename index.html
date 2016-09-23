@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<!-- saved from url=(0090)file:///Users/litsonthomas/Documents/Hack4people%20Online%20editor/materialize/index.html# -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+      <!--Import Google Icon Font-->
+      <link href="./index_files/icon" rel="stylesheet">
+      <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
+
+      <!--Import materialize.css-->
+      <link type="text/css" rel="stylesheet" href="./index_files/materialize.min.css" media="screen,projection">
+
+      <!--Let browser know website is optimized for mobile-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <link href="./index_files/css" rel="stylesheet">
+      <script src="js/fabric.min.js"></script>
+
+      <script src="js/jquery.js"></script>
+
+       <script type="text/javascript" src="http://www.google.com/jsapi">
+
+      </script>
+
+    </head>
+
+    <body>
+        <style type="text/css">
+        body{
+          font-family: 'Roboto', sans-serif;
+
+        }
+        .canvas-container{
+          margin: 0 auto;
+        }
+        .down{
+          background-color: #d34e4c;
+          border: none;
+          color: #fff;
+          text-align: center;
+          text-decoration: none;
+          font-size: 14px;
+          padding: 10px;
+          font-weight: 100;
+        }
+        
+        </style>
+
+        <div class="section">
+          <div class="container" style="text-align: center;">
+            <h3 style="color: #c3c3c3;font-weight: 300">HACK4PEOPLE</h3>
+            <h6 style="color: #c1c1c1;font-weight: 100;margin-top: -1rem;font-size: 10px;letter-spacing: 1.7px;">SMART TECHNOLOGIES AGAINST CORRUPTION</h6>
+          </div>
+          
+        </div>
+
+        <hr style="opacity: 0.2;width: 80%">
+        <div class="section">
+          <div class="row container" style="text-align: center;">
+          <h5 style="color: #c1c1c1;font-weight: 300;">STEP 1: UPLOAD YOUR PROFILE</h5>
+            <div class="col s12 m12 l12">
+                <input class="btn" type="file" name="pic" id="img" accept="image/*" style="font-weight: 300; margin-top: 25px;margin-bottom: 0px;">
+
+            </div>
+          </div>
+        </div>
+        <div class="section">
+          <div class="container" style="text-align: center;">
+            <canvas id="c" width="512px" height="512px" style="border:solid 1px #ccc;width: 100%"></canvas>
+           
+          </div>
+        </div>
+
+        
+        
+        
+        <div class="section">
+          <div class="row container" style="text-align: center;">
+          <div>
+          <a class="btn" onclick="imgClear()" style="">Reset</a>
+        <hr style="opacity: 0.2;width: 80%;margin-top: 2rem;margin-bottom: 3rem;">
+
+          </div>
+          <h5 style="color: #c1c1c1;font-weight: 300;">STEP 2: DOWNLOAD THE PHOTO</h5>
+            <div class="col s12 m12 l12" style="
+          margin-top: 25px;">
+                <a class="btn " onClick="clickk(this)" id="dowsnload" href="#" style="/* padding-left: 75px; */">Download as image</a>
+
+            </div>
+          </div>
+        </div>
+        <hr style="opacity: 0.2;width: 80%;margin-top: 2rem;margin-bottom: 3rem;">
+        <img src="img/footer.png" style="width: 100%;">
+
+        <style type="text/css">
+        .link{
+          color:#c1c1c1;
+        }
+        .link:hover{
+          color: #424242;
+        }
+        .link:focus{
+          color: #c1c1c1;
+        }
+        </style>
+        <div class="" style="padding:2rem;">
+          <p style="float: left;color:#c1c1c1;padding-bottom: 3rem;padding-left: 6rem"><i class="material-icons" style="vertical-align: -4px;font-size: 18px">copyright</i>2016 Hack4People  |  Developed by <a href="http://www.maximusdesigns.in" target="_blank" class="link">Maximus Solutions</a></p>
+          <p style="float: right;color: #c1c1c1;padding-right: 6rem;">IEDC , Sahrdaya</p>
+        </div>
+      <!--Import jQuery before materialize.js-->
+      <script type="text/javascript" src="./index_files/jquery-2.1.1.min.js"></script>
+      <script type="text/javascript" src="./index_files/materialize.min.js"></script>
+      <script>
+              $(document).ready(function(){
+      $('.carousel').carousel();
+    });
+      </script>
+      <script type="text/javascript">
+        var canvas = document.getElementById('c'),
+        context = canvas.getContext('2d');
+        var canvas = new fabric.Canvas('c');
+
+        function addImage(){
+        fabric.Image.fromURL('maximus.png', function(oImg) {
+          canvas.setOverlayImage(oImg);
+          canvas.renderAll.bind(canvas);
+        });
+        
+      } function addImage2(){
+        var img = new Image();
+      img.src = "maximus.png";
+
+
+      img.onload = function() {
+
+              img_width = img.width;
+              img_height = img.height;
+              var imgInstance = new fabric.Image(img, {
+              
+              opacity: 1
+            });
+            canvas.add(imgInstance);
+            //canvas.sendToFront(imgInstance);
+            //addImage();
+            }
+          }
+
+      function downloadCanvas(link, canvasId, filename) {
+          link.href = document.getElementById(canvasId).toDataURL();
+          link.download = filename;
+      }
+
+      // document.getElementById('download').addEventListener('click', function() {
+      //     downloadCanvas(this, 'c', 'Hack4people.png');
+      // }, false);
+
+function clickk(x){
+  console.log("asd");
+  downloadCanvas(x, 'c', 'Hack4people.png');
+}
+
+      $("#img").change(function(e){
+
+
+      var URL = window.webkitURL || window.URL;
+      var url = URL.createObjectURL(e.target.files[0]);
+      var img = new Image();
+      img.src = url;
+
+
+      img.onload = function() {
+
+              img_width = img.width;
+              img_height = img.height;
+              var imgInstance = new fabric.Image(img, {
+              top: canvas.height/2,
+              left: canvas.width/2,
+              scaleY: canvas.height / img.width,
+              scaleX: canvas.width / img.width,
+              originX: "center", 
+              originY: "center",
+              opacity: 1
+            });
+            canvas.add(imgInstance);
+            canvas.sendToBack(imgInstance);
+            addImage2();
+            }
+        });
+      function imgClear(){
+        canvas.clear();
+      }
+    
+      </script>
+    
+ </body>
+</html>
