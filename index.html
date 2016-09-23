@@ -134,7 +134,7 @@
               img_width = img.width;
               img_height = img.height;
               var imgInstance = new fabric.Image(img, {
-              
+              selectable:false,
               opacity: 1
             });
             canvas.add(imgInstance);
@@ -177,7 +177,8 @@ function clickk(x){
               scaleX: canvas.width / img.width,
               originX: "center", 
               originY: "center",
-              opacity: 1
+              opacity: 1,
+              selectable:false
             });
             canvas.add(imgInstance);
             canvas.sendToBack(imgInstance);
