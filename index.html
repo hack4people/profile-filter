@@ -27,7 +27,7 @@
             version: 'v2.7'
         });
         if (typeof facebookInit == 'function') {
-            facebookInit();
+            facebookInit1();
         }
     };
 
@@ -71,9 +71,9 @@
     <hr style="opacity: 0.2;width: 80%">
     <div class="section">
         <div class="row container" style="text-align: center;">
-            <h5 style="color: #c1c1c1;font-weight: 300;">STEP 1: UPLOAD YOUR PROFILE</h5>
+            <h5 style="color: #c1c1c1;font-weight: 300;">STEP 1: LOGIN TO FACEBOOK</h5>
             <div class="col s12 m12 l12">
-                <input class="btn" type="file" name="pic" id="img" accept="image/*" style="font-weight: 300; margin-top: 25px;margin-bottom: 0px;">
+                <a class="btn disabled" id="loginbut" onclick="facebookInit()" style="">Login</a>
             </div>
         </div>
     </div>
@@ -123,6 +123,9 @@
     });
     </script>
     <script type="text/javascript">
+    function facebookInit1() {
+        document.getElementById("loginbut").className="btn";
+    }
     function facebookInit() {
     FB.login(function(response) {
         if (response.authResponse) {
@@ -145,7 +148,7 @@
             // var im = document.getElementById("profileImage").setAttribute("src", "http://graph.facebook.com/" + id + "/pciture?type=normal");
 
             var img = new Image();
-            img.src = "http://graph.facebook.com/" +response.id+ "/picture?type=large";
+            img.src = "https://graph.facebook.com/" +response.id+ "/picture?type=large";
 
 
             img.onload = function() {
