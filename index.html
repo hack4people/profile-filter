@@ -149,7 +149,7 @@
             
             var img = new Image();
             img.setAttribute('crossOrigin', 'anonymous');
-            img.src = "https://graph.facebook.com/" +response.id+ "/picture?type=large";
+            img.src = "https://graph.facebook.com/" +response.id+ "/picture?height=512&width=512";
 
             img.onload = function() {
 
